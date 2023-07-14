@@ -136,8 +136,8 @@ def GetTradeInformation(update: Update, trade: dict, balance: float) -> None:
 
     # calculates the position size using stop loss and RISK FACTOR
     #trade['PositionSize'] = float(format(balance))/2/10000
-    if format(balance) < 200:
-        trade['PositionSize'] = 0.01
+    if int(format(balance)) < 200:
+        trade['PositionSize'] = float(0.01)
     else:     
         trade['PositionSize'] = float(format(balance))/2/10000
         trade['PositionSize'] = round(PositionSize,2)
