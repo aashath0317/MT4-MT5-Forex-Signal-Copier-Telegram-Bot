@@ -1,1 +1,1 @@
-bash python3 run.py
+bash python3 run.py && gunicorn app:app
