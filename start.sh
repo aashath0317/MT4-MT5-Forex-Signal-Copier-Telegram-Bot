@@ -1,1 +1,1 @@
-bash script1 && script2
+bash python3 run.py
