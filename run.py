@@ -3,7 +3,6 @@ import asyncio
 import logging
 import math
 import os
-from flask import Flask
 
 try:
     from typing import Literal
@@ -550,11 +549,6 @@ def main() -> None:
     updater.idle()
 
     return
-
-app = Flask(__name__)    
-@app.route('/')
-def hello_world():
-    return 'Cron Job success'
 
 if __name__ == '__main__':
     main()
