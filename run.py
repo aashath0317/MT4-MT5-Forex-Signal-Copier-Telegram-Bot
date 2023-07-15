@@ -5,7 +5,7 @@ import math
 import os
 import requests
 import time
-
+from dotenv import load_dotenv, dotenv_values
 try:
     from typing import Literal
 except ImportError:
@@ -17,7 +17,7 @@ from metaapi_cloud_sdk import MetaApi
 from prettytable import PrettyTable
 from telegram import ParseMode, Update
 from telegram.ext import CommandHandler, Filters, MessageHandler, Updater, ConversationHandler, CallbackContext
-
+load_dotenv('config.env', override=True)
 # MetaAPI Credentials
 API_KEY = os.environ.get("API_KEY")
 ACCOUNT_ID = os.environ.get("ACCOUNT_ID")
