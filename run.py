@@ -3,11 +3,15 @@ import asyncio
 import logging
 import math
 import os
+import requests
+import time
 
 try:
     from typing import Literal
 except ImportError:
     from typing_extensions import Literal
+
+
 
 from metaapi_cloud_sdk import MetaApi
 from prettytable import PrettyTable
@@ -547,8 +551,18 @@ def main() -> None:
     # listens for incoming updates from Telegram
     updater.start_webhook(listen="0.0.0.0", port=PORT, url_path=TOKEN, webhook_url=APP_URL + TOKEN)
     updater.idle()
+    hello_world = request_url()
 
     return
+def request_url():
+    url = "https://mt4tradingbot-ojwc.onrender.com"
+    response = requests.get(url)
 
+    if response.status_code == 200:
+        return response.text
+    else:
+        return None
+
+        
 if __name__ == '__main__':
     main()
